@@ -1,1 +1,30 @@
 
+✅ Backend (Flask + Transformers)
+
+🖥 From the /backend directory:
+# Activate virtual environment (if not already activated)
+source venv/bin/activate
+
+# Run the Flask app
+python app.py
+This will start your backend at:
+
+http://127.0.0.1:5000
+✅ Frontend (React + Tailwind CSS)
+
+💻 In a new terminal tab, from the /frontend directory:
+# Install dependencies (if not already done)
+npm install
+
+# Run the React dev server
+npm start
+This will start your frontend at:
+
+http://localhost:3000
+🔄 Backend–Frontend Connection
+
+Make sure your React frontend sends requests to the backend at http://127.0.0.1:5000. If there’s a proxy needed, add this to frontend/package.json:
+
+"proxy": "http://127.0.0.1:5000"
+So your API calls like fetch('/summarize', { ... }) will be correctly forwarded.
+
