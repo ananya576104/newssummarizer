@@ -1,0 +1,51 @@
+🛠️ Frontend Setup: React + Tailwind CSS (from scratch)
+Assuming you’re inside the frontend/ directory.
+
+✅ 1. Install dependencies
+npm install -D tailwindcss postcss autoprefixer
+✅ 2. Initialize Tailwind and PostCSS config
+npx tailwindcss init -p
+This creates:
+
+tailwind.config.js
+postcss.config.js
+✅ 3. Configure tailwind.config.js
+Open tailwind.config.js and update the content path:
+
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+✅ 4. Configure postcss.config.js
+Make sure this is the content of postcss.config.js:
+
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+✅ 5. Setup Tailwind in your CSS
+In src/index.css (or create it if it doesn't exist), add:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+✅ 6. Import the CSS in your React app
+In src/index.js (or src/App.js), make sure to import the CSS file:
+
+import './index.css';
+✅ 7. Run the development server
+npm start
+🔁 Optional: Fix missing component errors
+If you get errors like:
+
+Module not found: Error: Can't resolve './components/UrlForm'
+That means you're importing a file that doesn’t exist. To fix that:
+
+Either create the missing file:
+src/components/UrlForm.js
+Or comment/remove the import line in App.js if you’re not using it.
